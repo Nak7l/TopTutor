@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php'; 
+include 'db_connect.html'; 
 
 if(!isset($_SESSION['student'])){
     header("location: login.php");
@@ -32,7 +32,7 @@ if(!isset($_SESSION['student'])){
 <body class="bg">
 
 <!-- Navbar -->
-<?php require('components/navbar.php'); ?> 
+<?php require('components/navbar.html'); ?> 
 
 <!-- Header -->
 <?php require('components/header.php'); ?> 
