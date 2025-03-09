@@ -1,0 +1,140 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.language-card, .btn-custom {
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.language-card {
+    background: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.language-card img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.language-card:hover img {
+    transform: scale(1.1);
+}
+
+.arrow {
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.language-card:hover .arrow {
+    transform: translateX(5px);
+}
+
+.header1_body {
+    background: url('../admin/Imgs/header2.webp') no-repeat center center/cover;
+    position: relative;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow: hidden;
+}
+
+.hero-overlay, .floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    animation: fadeInUp 1.5s ease-in-out;
+    color: white;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-custom {
+    background: linear-gradient(135deg, #0C0B60, #1A1A99);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(12, 11, 96, 0.5);
+    display: inline-block;
+    text-align: center;
+    animation: bounceIn 1.5s ease-in-out;
+}
+
+.btn-custom:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(12, 11, 96, 0.8);
+    background: linear-gradient(135deg, #1A1A99, #0C0B60);
+}
+
+@keyframes bounceIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.floating-icons {
+    pointer-events: none;
+}
+
+.floating-icons span {
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

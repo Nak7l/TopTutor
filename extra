@@ -1,0 +1,37 @@
+        <div class="row">
+            <?php
+            if (mysqli_num_rows($result) > 0) {
+                while ($tutor = mysqli_fetch_assoc($result)) { ?>
+                    <div class="col-md-4" data-aos="fade-up">
+                        <div class="card shadow-lg mb-4">
+                            <div class="card-body text-center">
+                                <img src="<?php echo empty($tutor['profile']) ? 'admin/uploads/users_img/tutors/default.png' : 'admin/uploads/users_img/tutors/'.$tutor['profile']; ?>" class="rounded-circle mb-3" width="120" height="120">
+                                <h4><?php echo htmlspecialchars($tutor['name']); ?></h4>
+                                <p class="text-muted mb-1"><strong>Class:</strong> <?php echo htmlspecialchars($tutor['class']); ?></p>
+                                <p class="text-muted mb-1"><strong>Email:</strong> <?php echo htmlspecialchars($tutor['email']); ?></p>
+                                <p class="text-muted mb-1"><strong>Phone:</strong> <?php echo htmlspecialchars($tutor['phone']); ?></p>
+                                <p class="text-muted mb-1"><strong>Gender:</strong> <?php echo ucfirst(htmlspecialchars($tutor['gender'])); ?></p>
+                                <p class="text-muted mb-3"><strong>City:</strong> <?php echo htmlspecialchars($tutor['city']); ?></p>
+                                
+                                <div class="d-flex justify-content-center gap-2">
+                                    <form method="POST">
+                                        <input type="hidden" name="tutor_id" value="<?php echo htmlspecialchars($tutor['tutor_id']); ?>">
+                                        <button type="submit" name="request_lesson" class="btn btn-primary button request-lesson" data-student-id="<?php echo $tutor['tutor_id']; ?>">Request Lesson</button>
+                                    </form>
+                                    <button type="button" class="btn btn-primary send-button" data-bs-toggle="modal" data-bs-target="#sendMessageModal" 
+                                        data-tutor-id="<?php echo $tutor['tutor_id']; ?>" 
+                                        data-tutor-name="<?php echo htmlspecialchars($tutor['name']); ?>"
+                                        data-tutor-image="<?php echo htmlspecialchars($tutor['profile']); ?>">
+                                        Send message
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php 
+                }
+            } else {
+                echo "<div class='text-center text-danger fw-bold'>No tutors found.</div>";
+            }
+            ?>
+        </div>
